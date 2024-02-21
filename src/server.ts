@@ -1,9 +1,9 @@
 import { createServer, Server } from 'node:http'
 
-import validateEnv from '@utils/env'
 import { NextFunction, Request, Response } from 'express'
 
-import app from './app'
+import app from '@/app'
+import env from '@/utils/env'
 
 // Graceful Shutdown indicator
 let acceptingConnections = true
@@ -11,8 +11,6 @@ let server: Server
 
 // Express app
 try {
-  validateEnv()
-
   // Graceful Shutdown middleware
   app.use((req: Request, res: Response, next: NextFunction) => {
     if (!acceptingConnections) {
@@ -34,7 +32,7 @@ try {
 }
 
 // Start listening
-server.listen(process.env.PORT || 3000).on('error', (err) => {
+server.listen(env.PORT || 3000).on('error', (err) => {
   console.log(err)
   process.exit(1)
 })

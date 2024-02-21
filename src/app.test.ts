@@ -7,7 +7,7 @@ describe('express app', () => {
   afterAll(async () => {})
 
   test('should respond with readiness probe', async () => {
-    const res = await request(app).get('/health/readiness').set('X-Request-Origin', 'Kubernetes')
+    const res = await request(app).get('/health/readiness').set('X-Requested-With', 'Kubernetes')
     expect(res.headers['content-type']).toEqual('application/json; charset=utf-8')
     expect(res.statusCode).toEqual(200)
   })

@@ -1,13 +1,16 @@
 import express, { Express, Request, Response } from 'express'
 
+import { registerDefaultMiddlewares } from '@/middlewares/defaults'
+
 const app: Express = express()
+registerDefaultMiddlewares(app)
 
 app.get('/', (req: Request, res: Response) => {
   res.json({})
 })
 
 app.get('/health/readiness', (req: Request, res: Response) => {
-  if (req.get('X-Request-Origin') !== 'Kubernetes') {
+  if (req.get('X-Requested-With') !== 'Kubernetes') {
     return res.status(404).send()
   }
 

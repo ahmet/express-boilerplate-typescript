@@ -11,9 +11,8 @@ export default tseslint.config(
   ...tseslint.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
   {
-    plugins: {
-      jest: jestPlugin.configs.recommended
-    }
+    files: ["**/*.test.*"],
+    ...jestPlugin.configs['flat/recommended'],
   },
   prettierConfig,
   {
