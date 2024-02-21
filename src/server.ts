@@ -1,7 +1,9 @@
-import { Server, createServer } from 'node:http'
-import { NextFunction, Request, Response } from 'express'
-import app from './app'
+import { createServer, Server } from 'node:http'
+
 import validateEnv from '@utils/env'
+import { NextFunction, Request, Response } from 'express'
+
+import app from './app'
 
 // Graceful Shutdown indicator
 let acceptingConnections = true
