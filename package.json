@@ -1,7 +1,7 @@
 {
   "private": true,
   "version": "1.0.0",
-  "name": "basic-typescript-express",
+  "name": "express-boilerplate-typescript",
   "description": "",
   "author": "Ahmet Aygün <me@ahmetaygun.net>",
   "license": "MIT",
